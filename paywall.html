@@ -1,15 +1,22 @@
 <div id="paywall-wrapper">
     <h2>Azion Paywall</h2>
     <p>Subscribe for only <strong>$12.99/month</strong>.</p>
-    <form id="paywall_form" action="https://88669f.ha.azioncdn.net/getvalidtoken" get="get">
-        <a class="btn" href="javascript:{}" onclick="vote_for_group_4(this);">Subscribe today!</a>
-    </form>
+    <a class="btn" href="javascript:{}" onclick="vote_for_group_4(this);">Subscribe today!</a>
 </div>
 <script>
     function vote_for_group_4(e){
+        const Http = new XMLHttpRequest();
+        let url = "https://88669f.ha.azioncdn.net/getvalidtoken";
+
         let groupVal = prompt("Enter your favorite group: ", "4");
         if ( groupVal == 4 ) {
-            document.getElementById('paywall_form').submit();
+            const Http = new XMLHttpRequest();
+            Http.open("GET", url);
+            Http.send();
+
+            Http.onreadystatechange = (e) => {
+                console.log(Http.responseText)
+            }
         }
     };
 
