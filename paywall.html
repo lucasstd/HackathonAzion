@@ -1,17 +1,22 @@
 <div id="paywall-wrapper">
     <h2>Azion Paywall</h2>
     <p>Subscribe for only <strong>$12.99/month</strong>.</p>
-    <a class="btn" onclick="alert('Vote group 4!');">Subscribe today!</a>
+    <form action="https://88669f.ha.azioncdn.net/getvalidtoken" method="post">
+        <a class="btn" onclick="vote_for_group_4(this);">Subscribe today!</a>
+    </form>
 </div>
 <script>
+    function vote_for_group_4(e){
+        var groupVal = prompt("Enter your favorite group: ", "4");
+        groupVal == 4 ?  location.reload() : alert('nope');
+    };
+
     var styles = `
         p {
             position: relative;
         }
-        a {
-            cursor: pointer
-        }
         .btn {
+            cursor: pointer;
             -webkit-border-radius: 4px;
             -moz-border-radius: 4px;
             border-radius: 4px;
@@ -24,7 +29,7 @@
             color: #FFF;
             padding: 8px 12px;
             text-decoration: none;
-            margin: auto
+            margin: auto;
         }
         p.fade:after {
             content: "";
